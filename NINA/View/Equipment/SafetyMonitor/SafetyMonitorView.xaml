@@ -129,29 +129,7 @@
                         Text="{ns:Loc LblSettings}" />
                 </Grid>
             </GroupBox.Header>
-            <Grid>
-                <Grid.Resources>
-                    <DataTemplate x:Key="Default">
-                        <TextBlock Text="{ns:Loc LblNone}" />
-                    </DataTemplate>
-                    <DataTemplate x:Key="Failed">
-                        <TextBlock
-                            Margin="5"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Text="Failed to load plugin data template" />
-                    </DataTemplate>
-                    <wpfutil:GenericTemplateSelector
-                        x:Key="ContentSelector"
-                        Default="{StaticResource Default}"
-                        FailedToLoadTemplate="{StaticResource Failed}"
-                        Postfix="{x:Static wpfutil:DataTemplatePostfix.SafetyMonitorSettings}" />
-                </Grid.Resources>
-                <ContentControl
-                    Content="{Binding}"
-                    ContentTemplateSelector="{StaticResource ContentSelector}"
-                    DataContext="{Binding SafetyMonitor}" />
-            </Grid>
+            <equip:SafetyMonitorSettingsView />
         </GroupBox>
     </UniformGrid>
 </UserControl>

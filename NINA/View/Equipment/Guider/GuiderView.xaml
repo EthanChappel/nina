@@ -193,51 +193,7 @@
                         Text="{ns:Loc LblSettings}" />
                 </Grid>
             </GroupBox.Header>
-            <Grid>
-                <Grid.Resources>
-                    <DataTemplate x:Key="MGen">
-                        <local:MGenDetailView />
-                    </DataTemplate>
-                    <DataTemplate x:Key="PHD2">
-                        <local:PHD2DetailView />
-                    </DataTemplate>
-                    <DataTemplate x:Key="MetaGuide">
-                        <local:MetaGuideDetailView />
-                    </DataTemplate>
-                    <DataTemplate x:Key="DirectGuider">
-                        <local:DirectGuiderDetailView />
-                    </DataTemplate>
-                    <DataTemplate x:Key="Default">
-                        <local:DefaultDetailView />
-                    </DataTemplate>
-                    <DataTemplate x:Key="SkyGuardGuider">
-                        <local:SkyGuardDetailView />
-                    </DataTemplate>
-                    <DataTemplate x:Key="Failed">
-                        <TextBlock
-                            Margin="5"
-                            HorizontalAlignment="Center"
-                            VerticalAlignment="Center"
-                            Text="Failed to load plugin data template" />
-                    </DataTemplate>
-                    <local:GuiderTemplateSelector
-                        x:Key="ContentSelector"
-                        Default="{StaticResource Default}"
-                        DirectGuider="{StaticResource DirectGuider}"
-                        FailedToLoadTemplate="{StaticResource Failed}"
-                        MGen="{StaticResource MGen}"
-                        MetaGuide="{StaticResource MetaGuide}"
-                        PHD2="{StaticResource PHD2}"
-                        Postfix="{x:Static wpfutil:DataTemplatePostfix.GuiderSettings}"
-                        SkyGuardGuider="{StaticResource SkyGuardGuider}" />
-                </Grid.Resources>
-                <ContentControl
-                    VerticalAlignment="Top"
-                    Content="{Binding}"
-                    ContentTemplateSelector="{StaticResource ContentSelector}"
-                    DataContext="{Binding Guider}"
-                    IsEnabled="{Binding GuiderInfo.Connected}" />
-            </Grid>
+            <equip:GuiderSettingsView />
         </GroupBox>
 
         <local:GuiderGraph
